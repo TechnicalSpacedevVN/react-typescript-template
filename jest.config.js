@@ -1,4 +1,5 @@
 module.exports = {
+  setupFilesAfterEnv: ['./jest.setup.js'],
   testMatch: ['**/tests/**/*.spec.(js|jsx|ts|tsx)', '**/__tests__/*.(js|jsx|ts|tsx)'],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'vue'],
   transform: {
