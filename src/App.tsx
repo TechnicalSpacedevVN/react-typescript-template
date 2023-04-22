@@ -18,7 +18,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Button></Button>
+      <Button>Đăng nhập</Button>
     </QueryClientProvider>
   )
 }
