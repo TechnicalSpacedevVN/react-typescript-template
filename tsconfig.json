@@ -2,12 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ESNext",
-      "WebWorker"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "WebWorker"],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,12 +14,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@*": ["*"],
+      "@atoms/*": ["components/atoms/*"]
+    }
   },
-  "include": [
-    "src",
-    ".template"
-  ],
+  "include": ["src", ".template"],
   "references": [
     {
       "path": "./tsconfig.node.json"

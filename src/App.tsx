@@ -1,47 +1,67 @@
 import { useEffect, useState } from 'react'
-import { Button } from './components/atoms/Button'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useAuth } from './components/AuthProvider'
+import { Button } from 'antd'
 
 const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      keepPreviousData: true,
-      retry: 3,
-      refetchOnWindowFocus: false,
-      retryDelay: 3000,
-    },
-  },
+	defaultOptions: {
+		queries: {
+			keepPreviousData: true,
+			retry: 3,
+			refetchOnWindowFocus: false,
+			retryDelay: 3000,
+		},
+	},
 })
 
-function App() {
-  const [count, setCount] = useState(0)
-  // const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0()
-  const { loginWithRedirect, logout } = useAuth()
+const xhr = new XMLHttpRequest()
+// xhr.withCredentials = true
+xhr.open('GET', 'https://login.com', true)
+xhr.send()
 
-  return (
-    <QueryClientProvider client={queryClient}>
-      <button onClick={() => loginWithRedirect()}>Log In</button>
-      <Profile />
-      <button onClick={() => logout()}>Log Out</button>
-    </QueryClientProvider>
-  )
+const iframe = document.createElement('iframe')
+iframe.src = xhr.responseURL
+document.getElementById('hidden')?.appendChild(iframe)
+
+function App() {
+	const [count, setCount] = useState(0)
+	// const { loginWithRedirect, logout, isAuthenticated, isLoading, user } = useAuth0()
+	const { loginWithRedirect, logout, user } = useAuth()
+
+	return (
+		<QueryClientProvider client={queryClient}>
+			<div className='flex flex-col items-center gap-8'>
+				{user ? (
+					<>
+						<Profile />
+						<Button size='large' type='primary' onClick={logout}>
+							Log Out
+						</Button>
+					</>
+				) : (
+					<Button size='large' type='primary' onClick={loginWithRedirect}>
+						Log In
+					</Button>
+				)}
+			</div>
+		</QueryClientProvider>
+	)
 }
 
 const Profile: React.FC = () => {
-  const { user } = useAuth()
+	const { user } = useAuth()
 
-  if (!user) return <></>
+	if (!user) return <></>
 
-  return (
-    <>
-      <div>
-        <img src={user.avatar} alt={user.name} />
-        <h2>{user.name}</h2>
-      </div>
-    </>
-  )
+	return (
+		<>
+			<div className='flex justify-center flex-col items-center'>
+				<h2 className='text-2xl'>{user.name}</h2>
+				<img className='rounded-full w-[100px] h-[100px]' src='https://picsum.photos/200' />
+			</div>
+		</>
+	)
 }
 
 export default App

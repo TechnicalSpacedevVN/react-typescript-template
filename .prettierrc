@@ -5,6 +5,11 @@
   "printWidth": 120,
   "tabWidth": 2,
   "endOfLine": "auto",
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "jsxSingleQuote": true,
+  "jsxBracketSameLine": false,
+  "useTabs": true,
   "overrides": [
     {
       "files": "**/*.{yaml,yml}",
