@@ -1,12 +1,9 @@
-import React from 'react'
+import '@assets/tailwind.css'
+import { ConfigProvider } from 'antd'
 import ReactDOM from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './i18n'
-import { Auth0Provider } from '@auth0/auth0-react'
-import { AuthProvider } from '@components/AuthProvider'
-import '@assets/tailwind.css'
-import { BrowserRouter } from 'react-router-dom'
-import { ConfigProvider } from 'antd'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	// <React.StrictMode>
@@ -26,17 +23,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 		}}
 	>
 		<BrowserRouter>
-			<Auth0Provider
-				domain='dev-te6zolyvwhgh31vx.us.auth0.com'
-				clientId='hHsE8rgYG5czcJsV6bBnbPjk4U5q8jIc'
-				authorizationParams={{
-					redirect_uri: window.location.origin,
-				}}
-			>
-				<AuthProvider>
-					<App />
-				</AuthProvider>
-			</Auth0Provider>
+			<App />
 		</BrowserRouter>
 	</ConfigProvider>,
 	// </React.StrictMode>,
