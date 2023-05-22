@@ -1,6 +1,7 @@
 import { routers } from '@routres'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRoutes } from 'react-router-dom'
+import '@assets/css/tailwind.css'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
