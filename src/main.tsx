@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './i18n'
+import { DarkModeProvider } from '@core/components/DarkModeProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	// <React.StrictMode>
@@ -23,7 +24,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 		}}
 	>
 		<BrowserRouter>
-			<App />
+			<DarkModeProvider>
+				<App />
+			</DarkModeProvider>
 		</BrowserRouter>
 	</ConfigProvider>,
 	// </React.StrictMode>,
