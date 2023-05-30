@@ -2,6 +2,8 @@ import { routers } from '@routres'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRoutes } from 'react-router-dom'
 import '@assets/css/tailwind.css'
+import 'configs/moment'
+import { Suspense } from 'react'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -17,7 +19,11 @@ const queryClient = new QueryClient({
 function App() {
 	const element = useRoutes(routers)
 
-	return <QueryClientProvider client={queryClient}>{element}</QueryClientProvider>
+	return (
+		<QueryClientProvider client={queryClient}>
+			<Suspense fallback={<div>Loading....</div>}>{element}</Suspense>
+		</QueryClientProvider>
+	)
 }
 
 export default App

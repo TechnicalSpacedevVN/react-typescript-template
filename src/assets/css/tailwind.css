@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 ::selection {
-	background: red;
+	@apply bg-primary text-white;
 }

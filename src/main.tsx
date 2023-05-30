@@ -1,4 +1,3 @@
-import '@assets/tailwind.css'
 import { ConfigProvider } from 'antd'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'

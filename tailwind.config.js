@@ -6,16 +6,16 @@ export default {
 		// './node_modules/@my-company/tailwind-components/**/*.js'
 	],
 	theme: {
-		spacing: ({ theme }) => ({
-			...theme('spacing'),
-		}),
+		spacing: {},
 		extend: {
 			spacing: {
 				128: '32rem',
 				144: '36rem',
 			},
 			colors: {
-				primary: {}, // Màu chính
+				primary: {
+					DEFAULT: '#4156a6', // Màu chính
+				},
 				accent: {}, // Màu phụ
 				// gray: {},
 			},
