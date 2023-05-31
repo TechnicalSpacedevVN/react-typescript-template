@@ -5,13 +5,13 @@ require('@testing-library/jest-dom')
 describe('Button', () => {
 	it('renders label', () => {
 		const label = 'Click me'
-		const { getByText } = render(<Button label={label} />)
+		const { getByText } = render(<Button>{label}</Button>)
 		expect(getByText(label)).toBeInTheDocument()
 	})
 
 	it('calls onClick when clicked', () => {
 		const onClick = jest.fn()
-		const { getByText } = render(<Button label='Click me' onClick={onClick} />)
+		const { getByText } = render(<Button onClick={onClick} />)
 		fireEvent.click(getByText('Click me'))
 		expect(onClick).toHaveBeenCalled()
 	})
