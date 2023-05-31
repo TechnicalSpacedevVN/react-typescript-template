@@ -2,7 +2,6 @@
 	"name": "react-typescript-template",
 	"private": true,
 	"version": "0.0.0",
-	"type": "module",
 	"license": "MIT",
 	"homepage": "YOUR_GIT_REPO_URL",
 	"scripts": {
