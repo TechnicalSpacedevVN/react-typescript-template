@@ -16,7 +16,7 @@ export default {
 				primary: {
 					DEFAULT: '#4156a6', // Màu chính
 				},
-				accent: {}, // Màu phụ
+				// accent: {}, // Màu phụ
 				// gray: {},
 			},
 			boxShadow: {},
@@ -44,7 +44,7 @@ export default {
 	blocklist: [], // Ngược lại với safelist
 	plugins: [],
 	darkMode: 'class',
-	prefix: {},
+	prefix: '',
 	important: false, // True nếu muốn gắn important cho các css
 	corePlugins: {
 		// preflight: false, // Disable reset css

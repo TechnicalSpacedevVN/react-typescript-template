@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import eslint from 'vite-plugin-eslint'
 // import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vitejs.dev/config/
@@ -22,8 +23,13 @@ export default defineConfig(({ mode }) => {
 			react(),
 			// basicSsl(),
 			tsconfigPaths(),
+			eslint(),
 		],
-
+		build: {
+			rollupOptions: {
+				treeshake: true,
+			},
+		},
 		server: {
 			port: parseInt(process.env.PORT) || 3000,
 			open: true,

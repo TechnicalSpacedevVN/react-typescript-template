@@ -1,4 +1,3 @@
-
 beforeAll(async () => {
-  console.log('aaaaaaaaaaaa')
-});
+	console.log('aaaaaaaaaaaa')
+})

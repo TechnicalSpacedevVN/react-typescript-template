@@ -1,4 +1,4 @@
 class Http {
-  config() {}
-  createInstance() {}
+	config() {}
+	createInstance() {}
 }
