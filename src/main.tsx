@@ -1,9 +1,9 @@
+import { DarkModeProvider } from '@core/components/DarkModeProvider'
 import { ConfigProvider } from 'antd'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './i18n'
-import { DarkModeProvider } from '@core/components/DarkModeProvider'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	// <React.StrictMode>

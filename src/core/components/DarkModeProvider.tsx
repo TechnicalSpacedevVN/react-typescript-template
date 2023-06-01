@@ -1,43 +1,30 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { FC, createContext, useContext, useEffect, useState } from 'react'
 
 export interface ModeContextProps {
-	mode: string
+	mode: 'dark' | 'light'
 	toggleMode: (darkMode?: boolean) => void
 }
 
 const Context = createContext({} as ModeContextProps)
 
-export const DarkModeProvider: React.FC<{ children: any }> = ({ children }) => {
-	const [mode, setMode] = useState(localStorage.theme)
+export const DarkModeProvider: FC<{ children: any }> = ({ children }) => {
+	const [mode, setMode] = useState<ModeContextProps['mode']>(() => localStorage.theme)
 	useEffect(() => {
 		if (mode === 'dark') {
 			document.documentElement.classList.add('dark')
+			localStorage.theme = 'dark'
+		} else {
+			document.documentElement.classList.remove('dark')
+			localStorage.theme = 'light'
 		}
-	}, [])
+	}, [mode])
 
 	const toggleMode: ModeContextProps['toggleMode'] = darkMode => {
-		if (typeof darkMode !== 'undefined') {
-			if (darkMode) {
-				document.documentElement.classList.remove('dark')
-				localStorage.theme = 'light'
-			} else {
-				document.documentElement.classList.add('dark')
-				localStorage.theme = 'dark'
-			}
-		} else {
-			if (
-				mode === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.classList.remove('dark')
-				localStorage.theme = 'light'
-			} else {
-				document.documentElement.classList.add('dark')
-				localStorage.theme = 'dark'
-			}
-		}
+		let map = new Map()
+		map.set(true, 'light')
+		map.set(false, 'light')
 
-		setMode(localStorage.theme)
+		setMode(map.get(darkMode ?? mode === 'dark'))
 	}
 	return <Context.Provider value={{ mode, toggleMode }}>{children}</Context.Provider>
 }

@@ -1,9 +1,9 @@
+import '@assets/css/tailwind.css'
 import { routers } from '@routres'
+import 'configs/moment'
+import { Suspense } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRoutes } from 'react-router-dom'
-import '@assets/css/tailwind.css'
-import 'configs/moment'
-import { Suspense, useState } from 'react'
 
 const queryClient = new QueryClient({
 	defaultOptions: {

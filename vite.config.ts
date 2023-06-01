@@ -1,7 +1,7 @@
-import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { defineConfig, loadEnv } from 'vite'
 import eslint from 'vite-plugin-eslint'
+import tsconfigPaths from 'vite-tsconfig-paths'
 // import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vitejs.dev/config/
@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
 		},
 		server: {
 			port: parseInt(process.env.PORT) || 3000,
-			open: true,
+			open: false,
 			// cors: {
 			//   origin: '*',
 			//   allowedHeaders: ['Content-Type, Authorization'],
