@@ -23,7 +23,9 @@ export default defineConfig(({ mode }) => {
 			react(),
 			// basicSsl(),
 			tsconfigPaths(),
-			eslint(),
+			eslint({
+				exclude: ['/virtual:/**', 'node_modules/**'],
+			}),
 		],
 		build: {
 			rollupOptions: {
