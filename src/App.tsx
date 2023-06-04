@@ -1,9 +1,13 @@
 import '@assets/css/tailwind.css'
 import { routers } from '@routres'
 import 'configs/moment'
+import dayjs from 'dayjs'
 import { Suspense } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRoutes } from 'react-router-dom'
+
+const a = dayjs('2023-01-02')
+console.log(a.fromNow())
 
 const queryClient = new QueryClient({
 	defaultOptions: {
