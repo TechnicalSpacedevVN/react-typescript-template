@@ -1,10 +1,10 @@
 import '@assets/css/tailwind.css'
-import { routers } from '@routres'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import 'configs/moment'
 import dayjs from 'dayjs'
 import { Suspense } from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
 import { useRoutes } from 'react-router-dom'
+import { routers } from 'routres'
 
 const a = dayjs('2023-01-02')
 console.log(a.fromNow())

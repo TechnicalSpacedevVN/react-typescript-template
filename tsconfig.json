@@ -18,8 +18,8 @@
 		"noImplicitAny": true,
 		"baseUrl": "./src",
 		"paths": {
-			"@core/*": ["core/*"],
-			"@atoms/*": ["components/atoms/*"]
+			"@atoms/*": ["components/atoms/*"],
+			"@*": ["./*"]
 		}
 	},
 	"include": ["src", ".template"],
