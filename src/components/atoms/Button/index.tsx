@@ -1,5 +1,4 @@
 import { cn } from '@core/utils'
-import { FC } from 'react'
 import { ButtonProps } from './type'
 
 const typeClass = {
@@ -16,7 +15,7 @@ const sizeClass = {
 	large: 'px-5 leading-12 text-lg',
 }
 
-export const Button: FC<ButtonProps> = ({ size = 'default', type = 'default', ...props }) => {
+export const Button: Atom<ButtonProps> = ({ size = 'default', type = 'default', ...props }) => {
 	return (
 		<button
 			{...props}

@@ -1,5 +1,4 @@
 export interface ButtonProps {
-	children: any
 	className?: string
 	type?: 'default' | 'primary' | 'link' | 'red'
 	disabled?: boolean

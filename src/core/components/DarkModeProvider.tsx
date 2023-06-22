@@ -1,4 +1,4 @@
-import { FC, createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 export interface ModeContextProps {
 	mode: 'dark' | 'light'
@@ -7,7 +7,7 @@ export interface ModeContextProps {
 
 const Context = createContext({} as ModeContextProps)
 
-export const DarkModeProvider: FC<{ children: any }> = ({ children }) => {
+export const DarkModeProvider: Atom = ({ children }) => {
 	const [mode, setMode] = useState<ModeContextProps['mode']>(() => localStorage.theme)
 	useEffect(() => {
 		if (mode === 'dark') {
