@@ -22,8 +22,7 @@ export const DarkModeProvider: FC<{ children: any }> = ({ children }) => {
 	const toggleMode: ModeContextProps['toggleMode'] = darkMode => {
 		const map = new Map()
 		map.set(true, 'light')
-		map.set(false, 'light')
-
+		map.set(false, 'dark')
 		setMode(map.get(darkMode ?? mode === 'dark'))
 	}
 	return <Context.Provider value={{ mode, toggleMode }}>{children}</Context.Provider>

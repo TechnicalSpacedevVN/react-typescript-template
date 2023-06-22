@@ -1,6 +1,6 @@
 import { Cookie } from '@core/utils/Cookie'
 import axios from 'axios'
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 
 export interface User {

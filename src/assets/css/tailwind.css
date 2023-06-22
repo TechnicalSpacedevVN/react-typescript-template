@@ -5,3 +5,26 @@
 ::selection {
 	@apply bg-primary text-white;
 }
+
+*::-webkit-scrollbar {
+	width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+	@apply bg-transparent;
+	/* background: var(--primary); */
+	border-radius: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+	@apply bg-slate-500 dark:bg-slate-400;
+	border-radius: 100px;
+
+	/* border: 3px solid blue; */
+}
+
+@layer utilities {
+	.custom-class {
+		height: 10px;
+	}
+}
