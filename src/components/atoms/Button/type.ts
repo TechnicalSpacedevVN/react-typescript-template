@@ -6,3 +6,5 @@ export interface ButtonProps {
 	outline?: boolean
 	onClick?: () => void
 }
+
+export interface ButtonDropdown {}

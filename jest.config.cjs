@@ -1,4 +1,9 @@
+const { pathsToModuleNameMapper } = require('ts-jest')
+const { compilerOptions } = require('./tsconfig.json')
+const { join } = require('path')
+
 module.exports = {
+	preset: 'ts-jest',
 	setupFilesAfterEnv: ['./jest.setup.cjs'],
 	testMatch: ['**/tests/**/*.spec.(js|jsx|ts|tsx)', '**/__tests__/*.(js|jsx|ts|tsx)'],
 	moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'vue'],
@@ -12,9 +17,9 @@ module.exports = {
 			},
 		],
 	},
-	moduleNameMapper: {
-		'^@/(.*)$': '<rootDir>/src/$1',
-	},
+	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+		prefix: join('<rootDir>', compilerOptions.baseUrl),
+	}),
 	roots: ['<rootDir>/src'],
 	// For security reasons, clearMocks should be set to true in most cases.
 	// See https://jestjs.io/docs/configuration#clearmocks-boolean

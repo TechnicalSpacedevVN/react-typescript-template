@@ -1,3 +1,3 @@
 beforeAll(async () => {
-	console.log('aaaaaaaaaaaa')
+	console.log('Setup trước khi chạy unit test')
 })
